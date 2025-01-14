@@ -1,0 +1,18 @@
+# Create and activate virtual environment
+RUN python3 -m venv venv
+
+#Install the following packages:
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir --verbose \
+    langchain \
+    streamlit \
+    openai \
+    langchain-community \
+    "unstructured[all-docs]"
+
+# Install requirements from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install pytesseract paddleocr google-cloud-vision
+
+
+
